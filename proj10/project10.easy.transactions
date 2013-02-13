@@ -1,0 +1,18 @@
+report by_name
+report by_number
+update salary  35213  76800
+update department  35213  36
+report by_name
+remove employee  27811
+report by_name
+insert employee
+84772  34  88400  Hennessy,_3.
+report by_name
+insert employee
+89772  36  89000  Henessy,_1.
+report by_name
+insert employee
+19772  35  99400  Hessnessy,_2.
+update salary  56239  66200
+report by_name
+report by_number

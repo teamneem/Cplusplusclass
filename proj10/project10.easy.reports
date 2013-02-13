@@ -1,0 +1,44 @@
+Name                           ID      Department                    Salary
+Kernighan,_Brian               27811   Shipping and Receiving        $45,200
+Hopper,_Grace_Murray           56239   Accounting                    $62,500
+Patterson,_David_A.            35213   Research and Development      $76,000
+
+Name                           ID      Department                    Salary
+Kernighan,_Brian               27811   Shipping and Receiving        $45,200
+Patterson,_David_A.            35213   Research and Development      $76,000
+Hopper,_Grace_Murray           56239   Accounting                    $62,500
+
+Name                           ID      Department                    Salary
+Kernighan,_Brian               27811   Shipping and Receiving        $45,200
+Hopper,_Grace_Murray           56239   Accounting                    $62,500
+Patterson,_David_A.            35213   Sales and Marketing           $76,800
+
+Name                           ID      Department                    Salary
+Hopper,_Grace_Murray           56239   Accounting                    $62,500
+Patterson,_David_A.            35213   Sales and Marketing           $76,800
+
+Name                           ID      Department                    Salary
+Hopper,_Grace_Murray           56239   Accounting                    $62,500
+Hennessy,_3.                   84772   Information Services          $88,400
+Patterson,_David_A.            35213   Sales and Marketing           $76,800
+
+Name                           ID      Department                    Salary
+Hopper,_Grace_Murray           56239   Accounting                    $62,500
+Henessy,_1.                    89772   Sales and Marketing           $89,000
+Hennessy,_3.                   84772   Information Services          $88,400
+Patterson,_David_A.            35213   Sales and Marketing           $76,800
+
+Name                           ID      Department                    Salary
+Hopper,_Grace_Murray           56239   Accounting                    $66,200
+Hessnessy,_2.                  19772   Research and Development      $99,400
+Henessy,_1.                    89772   Sales and Marketing           $89,000
+Hennessy,_3.                   84772   Information Services          $88,400
+Patterson,_David_A.            35213   Sales and Marketing           $76,800
+
+Name                           ID      Department                    Salary
+Hessnessy,_2.                  19772   Research and Development      $99,400
+Patterson,_David_A.            35213   Sales and Marketing           $76,800
+Hopper,_Grace_Murray           56239   Accounting                    $66,200
+Hennessy,_3.                   84772   Information Services          $88,400
+Henessy,_1.                    89772   Sales and Marketing           $89,000
+

@@ -1,0 +1,9 @@
+report by_name
+report by_number
+update salary  35213  76800
+update department  35213  36
+remove employee  27811
+insert employee
+24772  34  88400  Hennessy, John L.
+update salary  56239  66200
+report by_name

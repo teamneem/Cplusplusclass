@@ -1,0 +1,114 @@
+/****************************************************************************
+    Tasneem Pierce
+    Section 8
+    Computer Project #2
+
+****************************************************************************/
+
+using namespace std;
+
+#include <iostream>
+
+/*-----------------------------------------------------------------------------
+   Name:  usage
+
+   Purpose:  Calculate energy usage
+   Input:    Beginning and end meter reading
+   Output:   Amount of energy used 
+-----------------------------------------------------------------------------*/
+
+double usage(int A, int B)
+	{
+	int total;
+  	if (A<B)
+		{total = B-A;}
+	else
+		{A += 1000000;
+		total = B-A;}
+	total = total/10;
+    return total;
+  }
+
+/*-----------------------------------------------------------------------------
+   Name:  bill
+
+   Purpose:  Calculate customer's bill
+   Input:    Customer classification and energy usage
+   Output:   Total bill for customer
+-----------------------------------------------------------------------------*/
+
+double bill(char C, double D )
+  {
+    return 0;
+  }
+  
+  
+/*-----------------------------------------------------------------------------
+  Function "main" will repeatedly prompt the user to enter the two meter
+  readings for a given customer, as well as that customer's code (see below).
+  It will then process that customer information and display the results.  It
+  will halt when the user enters "end-of-file" (control-d) instead of a meter
+  reading.
+
+  4) Function "usage" will be declared as:
+
+    double usage( int, int );
+
+  where the first argument represents the beginning meter reading and the
+  second argument represents the ending meter reading (assume that the meter
+  is read by a representative of the utility company at the beginning and
+  ending of the billing period).  The readings are taken from a meter which
+  has six digits and records tenths of a KiloWatt-Hour (KWH).
+
+  Function "usage" will return the KiloWatt-Hours of electricity used by the
+  customer during the current billing period.
+
+  Note that the meter's dial has six digits and records tenths of a KWH.  For
+  example, assuming that the beginning reading was 220015 and the ending
+  reading was 220039, then the customer used 2.4 KiloWatt-Hours of electricity
+  during the billing period.
+
+  Also, note that the reading at the end of the billing period may be less
+  than the reading at the start of the billing period, since the meter's dial
+  has only six digits.  For example, assuming that the beginning reading was
+  999997 and the ending reading was 000005, then the customer used 0.8
+  KiloWatt-Hours of electricity during the billing period.
+
+
+
+  5) Function "bill" will be declared as:
+
+    double bill( char, double );
+
+  where the first argument represents the classification of the customer ('P',
+  'A', 'F', or 'C'), and the second argument represents the KiloWatt-Hours of
+  electricity used by the customer during the current billing period.
+
+  Function "bill" will return the amount of money that the customer will be
+  billed, based on the customer's code and electricity usage, using the 
+  following information.
+
+    Code 'P' (primary residence):
+
+      $0.07 per KWH for the first 300 KiloWatt-Hours, $0.08 per KWH for the
+      next 300 KiloWatt-Hours, and $0.09 per KWH after that.
+
+    Code 'A' (alternate residence):
+
+      $0.07 per KWH for the first 200 KiloWatt-Hours, $0.08 per KWH for the
+      next 200 KiloWatt-Hours, and $0.09 per KWH after that.
+
+    Code 'F' (farm):
+
+      $10.00 plus $0.07 per KWH.
+      
+    Code 'C' (commercial):
+
+      $700.00 for 10000 KiloWatt-Hours or less, and $0.09 for each additional
+      KiloWatt-Hour used.
+
+  Function "bill" will return a value of zero for an unrecognized customer
+  code.
+
+
+-----------------------------------------------------------------------------*/

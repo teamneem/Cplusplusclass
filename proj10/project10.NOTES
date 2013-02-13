@@ -1,0 +1,212 @@
+
+Notes on Computer Project #10
+-----------------------------
+
+Comments about the assignment and responses to frequently asked questions will
+be added to this file as necessary.
+
+***** comments added on 11/27/12 *****
+
+1) As stated on the assignment handout, you are required to create a makefile
+which controls the translation of your program, and the name of your
+executable files must be "proj10".
+
+2) The deliverables for this assignment include the following files:
+
+  proj10.makefile -- the make file which produces "proj10"
+  proj10.*.cpp    -- the source code file(s) for your solution
+  proj10.*.h      -- the interface file(s) for your solution
+
+Please note that the '*' denotes a name that you select.  For example:
+
+  proj10.main.cpp
+  proj10.employee.h
+  proj10.employee.cpp
+
+3) Please note the following statement from the handout:
+
+  The program will use the containers, algorithms and iterators available in
+  the STL whenever appropriate.
+
+When your solution is evaluated, some of the things the graders will look for
+include the following:
+
+  -- use of appropriate STL container(s)
+  -- use of appropriate STL algorithm(s)
+  -- use of appropriate STL iterator(s)
+  -- use of appropriate data types (including programmer-defined types)
+
+4) Please note the following statement from the handout:
+
+  You will design, implement and test all of the modules which are necessary
+  to complete this assignment, including  a programmer-defined data type to
+  represent an employee.
+
+That is, you must supply the C++ implementation of a programmer-defined data
+type that represents an employee.  That data type must be implemented as a
+separate module, with C++ files which are independent of any particular
+application program.
+
+Minimally, that module will have an interface file that can be accessed by an
+application program via an "include" preprocessor directives.
+
+5) There are several lectures examples that may remind you about some of the
+basics with respect to character strings and file streams:
+
+  Example #29 -- using C-style strings
+  Example #30 -- using C++ string objects
+  Example #31 -- using external files
+
+Remember the difference between C-style strings and objects of type "string":
+an array of characters with a zero byte (null byte) on the end is treated as a
+simple kind of character string, while class "string" is more robust.
+
+Please note that the "open" function in the I/O library is expecting a C-style
+character string as the name of the file.  If you are using an object of type
+"string" to represent the name of an input file, you must use the "c_str"
+function in class "string" to make a copy of the class object as a C-style
+character string:
+
+  InFile.open( InName.c_str(), ios::in );
+
+The Nyhoff textbook has related information (sections 5.1, 5.2, D.1 and D.2).
+
+6) There are several lectures examples that may remind you about some of the
+basics with respect to STL containers and algorithms:
+
+  Example #41 -- the vector class template and input operations
+  Example #43 -- the vector class template and iterators
+  Example #51 -- vectors, algorithms and composite data types 
+  Example #52 -- lists, algorithms and composite data types 
+
+The Nyhoff textbook contains information about the STL containers (sections
+9.4-9.7) and algorithms (section 10.5).
+
+7) Assume the following files exist in the current directory (and thus the
+file prefix is "project10.data"):
+
+  project10.data.employees.old
+  project10.data.transactions
+
+Then, consider the following program execution:
+
+  <prompt> proj10
+
+  Please enter the file prefix:  project10.data
+
+When your program has processed all of the lines contained in
+"project10.data.transactions", the following files will exist:
+
+  project10.data.employees.old
+  project10.data.employees.new
+  project10.data.transactions
+  project10.data.reports
+
+The revised data set will be in "project10.data.employees.new", and the output
+produced by any "report" commands in "project10.data.transactions" will be in
+"project10.data.reports".
+
+Please note:  if the ".transactions" file is empty, then the ".reports" file
+will be empty.  Also, the ".employees.new" file will contain the exact same
+information as the ".employees.old" file (although there might be differences
+in white space, and the order of the records might be different if your
+program does any sorting).
+
+8) To simplify your error processing, you may assume that the ".employees.old"
+file will be correctly formatted.  All four fields (identification number,
+department code, salary, and name) will contain data values, and those data
+values will be in the appropriate format.
+
+Please note that you have no way to validate the data in that file.  That is,
+you have no way to determine whether a particular employee name is spelled
+correctly, etc.
+
+You may also assume that the ".transactions" file is formatted correctly, but
+you should detect and recover from erroneous commands ("update email", "report
+by_department", etc).  You should also detect and recover from invalid
+employee identification numbers, invalid department codes, etc.
+
+***** comments added on 12/02/12 *****
+
+9) To eliminate any confusion about the format of the two input files, I have
+posted sample files:
+
+  project10.full.employees.old
+  project10.full.transactions
+
+The ".employees.old" file meets the criteria specified on the handout:  the
+first three items are delimited by one or more blanks; the fourth item is
+delimited by a newline.  Similarly, the ".transactions" file meets the
+criteria specified on the handout.
+
+10) Please note that an employee name may contain blanks between the various
+components of the name.  For example:
+
+  Kernighan, Brian
+  Patterson, David A.
+  Hopper, Grace Murray
+
+Thus, "operator>>" cannot be used to read the names (that function skips
+leading whitespace, reads a series of non-whitespace characters and stops when
+it encounters whitespace).
+
+Instead, you will need to read and skip any blanks that appear before the
+name, then read and store all characters until you find a newline.
+
+You could accomplish those tasks using function "get" from the I/O stream
+library:
+
+  istream& get( char& c );
+
+To read a name, you could loop and store each individual character into a
+C-style character string or a C++ character string.
+
+Alternatively, you could use other functions which are part of the I/O stream
+library, including:
+
+  istream& get( char* s, int len, char delim = '\n' );
+  istream& getline( char* s, int len, char delim = '\n' );
+  istream& getline( istream& is, string& str, char delim = '\n' );
+
+In addition, the "ws" input manipulator might be useful:  it extracts as many
+whitespace characters as possible from the current position in the input
+stream, then stops when it finds a non-whitespace character.
+
+To make sure that students don't get stuck on this part of the project, I have
+posted a second set of input files:
+
+  project10.easy.employees.old
+  project10.easy.transactions
+
+Those files are identical to the "full" files discussed in Item #10, except
+that all blanks inside employee names have been replaced by underscores.
+Thus, the employee names in the "easy" files may be treated as a single
+character string.
+
+For your initial testing, I would suggest that you use files which follow the
+format of the "easy" files.
+
+Once you have most of the functionality of the program in place, you can then
+revise the way that you read a player name to permit blanks in the middle of
+names (as discussed above).
+
+***** comments added on 12/04/12 *****
+
+11) When your program reads the ".employees.old" file, you may assume that it
+is completely correct:  it contains no duplicate identification numbers, and
+all of the information is valid.
+
+As noted in Item #8 above, you may assume that the ".transactions" file is
+formatted correctly, but you should detect and recover from erroneous commands
+("update email", "report by_department", etc).  You should also detect and
+recover from invalid employee identification numbers, invalid department
+codes, etc.
+
+12) The sample input files that I posted on 12/02 erroneously contained
+six-digit identification numbers.  As stated on the handout, valid
+identification numbers will range from 10000 to 99999 (inclusive).
+
+I have updated the sample input files to remove those errors.
+
+--M. McCullen
+
